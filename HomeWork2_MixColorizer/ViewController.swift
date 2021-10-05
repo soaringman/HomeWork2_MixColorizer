@@ -30,18 +30,21 @@ class ViewController: UIViewController {
         
         setColor()
         
-        redLabel.text = String(format: "%.1f", redSlider.value)
-        greenLabel.text = String(format: "%.1f", greenSlider.value)
-        blueLabel.text = String(format: "%.1f", blueSlider.value)
+        setValue(for: redLabel, greenLabel, blueLabel)
         
     }
     
     @IBAction func rgbSlider(_ sender: UISlider) {
         setColor()
+        
+        switch sender.tag {
+        case 0: redLabel.text = string(from: sender)
+        case 1: greenLabel.text = string(from: sender)
+        case 2: blueLabel.text = string(from: sender)
+        default: break
+        }
 //
-        redLabel.text = String(format: "%.1f", redSlider.value)
-        greenLabel.text = String(format: "%.1f", greenSlider.value)
-        blueLabel.text = String(format: "%.1f", blueSlider.value)
+       
     }
     
     // MARK: Methods
@@ -51,8 +54,20 @@ class ViewController: UIViewController {
                                              blue: CGFloat(blueSlider.value),
                                              alpha: 1)
     }
+    
+    private func setValue(for labels: UITextField...) {
+        labels.forEach { label in
+            switch label.tag {
+            case 0: redLabel.text = string(from: redSlider)
+            case 1: greenLabel.text = string(from: greenSlider)
+            case 2: blueLabel.text = string(from: blueSlider)
+            default: break
+            }
+        }
+    }
+    
         
-        private func string(from slider: UISlider) -> String {
+    private func string(from slider: UISlider) -> String {
             String(format: "%.1f", slider.value)
     }
 }
