@@ -8,7 +8,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet var resultView: UIView!
+    
+    @IBOutlet var redLabel: UITextField!
+    @IBOutlet var greenLabel: UITextField!
+    @IBOutlet var blueLabel: UITextField!
+    
+    @IBOutlet var redSlider: UISlider!
+    @IBOutlet var greenSlider: UISlider!
+    @IBOutlet var blueSlider: UISlider!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
