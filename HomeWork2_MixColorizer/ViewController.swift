@@ -33,6 +33,10 @@ class ViewController: UIViewController {
         setValue(for: redLabel, greenLabel, blueLabel)
         
     }
+    override func viewWillLayoutSubviews() {
+        setColor()
+        setValue(for: redLabel, greenLabel, blueLabel)
+    }
     
     @IBAction func rgbSlider(_ sender: UISlider) {
         setColor()
@@ -55,9 +59,9 @@ class ViewController: UIViewController {
                                              alpha: 1)
     }
     
-    private func setValue(for labels: UITextField...) {
-        labels.forEach { label in
-            switch label.tag {
+    func setValue(for laybels: UITextField...) {
+        laybels.forEach { laybel in
+            switch laybel.tag {
             case 0: redLabel.text = string(from: redSlider)
             case 1: greenLabel.text = string(from: greenSlider)
             case 2: blueLabel.text = string(from: blueSlider)
@@ -68,7 +72,7 @@ class ViewController: UIViewController {
     
         
     private func string(from slider: UISlider) -> String {
-            String(format: "%.1f", slider.value)
+            String(format: "%.2f", slider.value)
     }
 }
 
