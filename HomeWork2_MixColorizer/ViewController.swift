@@ -33,10 +33,6 @@ class ViewController: UIViewController {
         setValue(for: redLabel, greenLabel, blueLabel)
         
     }
-    override func viewWillLayoutSubviews() {
-        setColor()
-        setValue(for: redLabel, greenLabel, blueLabel)
-    }
     
     @IBAction func rgbSlider(_ sender: UISlider) {
         setColor()
